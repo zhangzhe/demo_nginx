@@ -9,7 +9,13 @@ threads threads_count, threads_count
 
 # Specifies the `port` that Puma will listen on to receive requests; default is 3000.
 #
-port        ENV.fetch("PORT") { 3000 }
+# port        ENV.fetch("PORT") { 8000 }
+
+if ENV.fetch("_system_name") == "OSX"
+  bind "unix:///Users/zhezhang/Code/demo_nginx/tmp/sockets/puma.sock"
+else
+  bind "unix:///home/vagrant/shared/puma.sock"
+end
 
 # Specifies the `environment` that Puma will run in.
 #
