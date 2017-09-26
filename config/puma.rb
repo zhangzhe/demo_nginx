@@ -11,12 +11,13 @@ threads threads_count, threads_count
 #
 # port        ENV.fetch("PORT") { 8000 }
 
-if ENV.fetch("_system_name") == "OSX"
-  bind "unix:///Users/zhezhang/Code/demo_nginx/tmp/sockets/puma.sock"
-else
-  bind "unix:///home/vagrant/shared/puma.sock"
-end
+# if ENV.fetch("_system_name") == "OSX"
+#   bind "unix:///Users/zhezhang/Code/demo_nginx/tmp/sockets/puma.sock"
+# else
+#   bind "unix:///home/vagrant/shared/puma.sock"
+# end
 
+port        ENV.fetch("PORT") { 3000 }
 # Specifies the `environment` that Puma will run in.
 #
 environment ENV.fetch("RAILS_ENV") { "development" }
